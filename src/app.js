@@ -68,8 +68,42 @@ render: async () => {
     // Render account
     $('#account').html(App.account)
 
+    // render Tasks
+    await App.renderTasks()
+
     // Update app loading state
     App.setLoading(false)
+},
+
+renderTasks: async () => {
+    // load tasks from blockchain
+    const taskCount = await App.todoList.taskCount
+    const $taskTemplate = $('.$taskTemplate')
+
+    // Render each task in the template
+    for (var i = 1; i <= taskCount; i++) {
+        const task = await App.todoList.tasks(i)
+        const taskId = task[0].toNumber()
+        const taskContent = task[1]
+        const taskCompleted = task[2]
+
+        // Create HTML for the task
+        const $newTaskTemplate = $taskTemplate.clone()
+        $newTaskTemplate.find('.content').html(taskContent)
+        $newTaskTemplate.find('input')
+                        .prop('name', taskId)
+                        .prop('checked', taskCompleted)
+
+        // Put the task in the correct list
+        if (taskCompleted) {
+            $('#completedTaskList').append($newTaskTemplate)
+        } else {
+            $('#taskList').append($newTaskTemplate)
+        }
+    }
+
+    // Show the task
+    $newTaskTemplate.show()
 },
 
 setLoading: (boolean) => {
