@@ -2604,12 +2604,12 @@
         }
       },
       "links": {},
-      "address": "0x52EB73151f8461fa4a1A3996aEeE071Acc1D9B32",
-      "transactionHash": "0xb3645d9e7a6b30176cc909753b86ea011dd60340d5c97d895c9a949b9a73ad19"
+      "address": "0x68E4a1C0D61F75F400F975Dd8c9d14b819bB93db",
+      "transactionHash": "0xbe01373c890fc003b865e313396555ffcfb1d043faf3181f62f6badc110c2e85"
     }
   },
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-11-19T12:32:02.535Z",
+  "updatedAt": "2019-11-19T13:30:37.586Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
